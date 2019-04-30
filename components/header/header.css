@@ -1,0 +1,18 @@
+.header{
+    position: relative;
+    height: 40px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    background-color: blue;
+    line-height: 40px;
+}
+.header .icon-back{
+    position: absolute;
+    top: 0;
+    left: 10px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    color: #fff;
+}
