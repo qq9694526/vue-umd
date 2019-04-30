@@ -1,7 +1,6 @@
-define([
-    'text!./header.html',
-    'css!./header.css'
-], function (template) {
+
+// header组件
+define(['text!./header.html','css!./header.css'], function (template) {
     return () => {
         Vue.component('v-header', {
             template,
