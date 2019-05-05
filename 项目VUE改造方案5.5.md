@@ -42,7 +42,7 @@
 
    作用：稳定可靠彻底的双向绑定；钩子函数和特有对象，提供了代码骨架，能有效缓解代码结构混乱的问题；
 
-    ```html
+```html
    		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
    		<div id="app">{{msg}}</div>
        <script type="text/javascript">
@@ -54,7 +54,7 @@
                }
            }).$mount('#app')
        </script>
-    ```
+```
 
 2. ~~基于RequireJS的模块化/组件化~~
 
@@ -66,7 +66,7 @@
 
    问题：鉴于咱们项目较小（9个页面），使用RequireJS模块化可能太重了，个人不建议应用。
 
-   ```js
+```js
    // 模块的定义：header组件
    // components/header/header.js 
    define(['text!./header.html','css!./header.css'], function (template) {
@@ -89,7 +89,7 @@
            router
        }).$mount('#app')
    });
-   ```
+```
 
 3. 基于vue-router的单页
 
@@ -101,7 +101,7 @@
 
    问题：页面url为hash模式，无法和原来的链接保持一致，这样是否会影响现有业务？
 
-   ```js
+```js
    // 定义router
    define(["pages/developer/developer",], function (pDeveloper) {
        Vue.use(VueRouter);
@@ -119,7 +119,7 @@
            routes
        })
    });
-   ```
+```
 
 4. 基于Promise的异步解决方案
 
@@ -127,7 +127,7 @@
 
    引入插件可解决可能存在的兼容性问题，这个只有好处没有坏处。
 
-   ```js
+```js
    // 现在项目中callback的模式
    BuildInfoCtrl(){
      ...
@@ -152,9 +152,9 @@
          }
        })
    };
-   ```
+```
 
-   ```js
+```js
    // promise 模式
    BuildInfoCtrl(){
      ...
@@ -170,7 +170,7 @@
      ...
    }
    // 业务逻辑集中在一处，而不是分散在各个函数中
-   ```
+```
 
 5. 达成共识的前端代码规范 ( 待完善 ) 
 
