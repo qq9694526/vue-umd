@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>bscroll+vue实践</title>
+    <!-- <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.3/weui.min.css"> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script> -->
+    <style>
+        .item {
+            height: 40px;
+            line-height: 40px;
+        }
+    </style>
+    <script src="lib/vue.min.js"></script>
+    <script src="lib/better-scroll.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div ref="wrapper" class="wrapper">
+            <div class="item" v-for="(item,index) in list">{{index}}</div>
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                list: 20
+            },
+            mounted() {
+                setTimeout(() => {
+                    this.initScroll()
+                }, 20)
+            },
+            methods: {
+                initScroll() {
+                    if (!this.$refs.wrapper) {
+                        return
+                    }
+                    // better-scroll的初始化
+                    this.scroll = new BScroll(this.$refs.wrapper, {
+                    })
+
+                    // 是否派发滚动到底部事件，用于上拉加载
+                    this.scroll.on('scrollEnd', () => {
+                        // 滚动到底部
+                        if (this.scroll.y <= (this.scroll.maxScrollY + 50)) {
+                            console.log("滚动到底部")
+                            // this.$emit('scrollToEnd')
+                            this.list += 4
+                            this.scroll.refresh()
+                        }
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
